@@ -1,0 +1,11 @@
+body {
+    background: url('../Imagen/FondoCueva.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.sign {
+    background: url('../Imagen/Cartel.png') no-repeat center;
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+}

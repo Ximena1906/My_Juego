@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('../Imagen/FondoCueva.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.light {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 20%, rgba(0,0,0,0.8) 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: lighten;
+}
+.bat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('../Imagen/Murcielago.gif') no-repeat center;
+    background-size: contain;
+}
+.level {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+.stars {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-size: 20px;
+}
+.star {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('../Imagen/Estrella.png') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+.score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
