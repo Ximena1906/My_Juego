@@ -7,7 +7,7 @@ function startGame() {
     let interval = setInterval(() => {
         if (width >= 100) {
             clearInterval(interval);
-            window.location.href = "index.html"; // Redirige al juego
+            window.location.href = "index1.html"; // Redirige al juego
         } else {
             width += 10;
             progress.style.width = width + '%';
