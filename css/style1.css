@@ -1,11 +1,13 @@
+/* Estilos generales para el cuerpo de la página */
 body {
-    background: url('../Imagen/FondoCueva.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('../Imagen/FondoCueva.jpg') no-repeat center center fixed; /* Imagen de fondo de la cueva */
+    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
 }
 
+/* Estilos para el cartel del juego */
 .sign {
-    background: url('../Imagen/Cartel.png') no-repeat center;
-    background-size: contain;
-    width: 200px;
-    height: 200px;
+    background: url('../Imagen/Cartel.png') no-repeat center; /* Imagen del cartel */
+    background-size: contain; /* Ajusta la imagen al tamaño del contenedor */
+    width: 200px; /* Ancho del cartel */
+    height: 200px; /* Alto del cartel */
 }

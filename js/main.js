@@ -1,24 +1,28 @@
-const light = document.getElementById('light');
-const levelDisplay = document.getElementById('level');
-const starsDisplay = document.getElementById('stars');
-const scoreDisplay = document.getElementById('score');
+const light = document.getElementById('light'); // Elemento de luz (puntero del jugador)
+const levelDisplay = document.getElementById('level'); // Muestra el nivel actual
+const starsDisplay = document.getElementById('stars'); // Muestra la cantidad de estrellas recogidas
+const scoreDisplay = document.getElementById('score'); // Muestra el mejor puntaje
 
-let stars = 0;
-let level = 1;
-let batSpeed = 2;
-let batCount = 10;
-let bats = [];
-let gameOver = false;
-let playerName = localStorage.getItem('playerName') || ''; 
-let maxLevel = localStorage.getItem('maxLevel') || 1;
+// Variables del juego
+let stars = 0; // Contador de estrellas recogidas
+let level = 1; // Nivel actual
+let batSpeed = 2; // Velocidad inicial de los murciélagos
+let batCount = 10; // Cantidad inicial de murciélagos
+let bats = []; // Lista de murciélagos
+let gameOver = false; // Estado del juego
+let playerName = localStorage.getItem('playerName') || ''; // Obtiene el nombre del jugador o lo pide
+let maxLevel = localStorage.getItem('maxLevel') || 1; // Obtiene el nivel máximo alcanzado
 
+// Solicita el nombre del jugador si no está guardado
 if (!playerName) {
     playerName = prompt('Ingresa tu nombre:');
     localStorage.setItem('playerName', playerName);
 }
 
+// Muestra el mejor puntaje en pantalla
 scoreDisplay.textContent = `Mejor Puntaje: ${playerName} - Nivel ${maxLevel}`;
 
+// Música de fondo del juego
 const backgroundMusic = new Audio('./Sonido/Zelda 020.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.5;
@@ -37,11 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
 });
 
+// Movimiento de la luz según el puntero del ratón
 document.addEventListener('mousemove', (e) => {
     light.style.left = `${e.clientX - 100}px`;
     light.style.top = `${e.clientY - 100}px`;
 });
 
+// Crea un murciélago en una posición aleatoria
 function createBat() {
     const bat = document.createElement('div');
     bat.classList.add('bat');
@@ -55,6 +61,7 @@ function createBat() {
     bats.push({ element: bat, x, y });
 }
 
+// Mueve los murciélagos hacia el jugador
 function moveBats() {
     if (gameOver) return;
 
@@ -72,13 +79,14 @@ function moveBats() {
             bat.element.style.left = `${bat.x}px`;
             bat.element.style.top = `${bat.y}px`;
         } else {
-            endGame();
+            endGame(); // Termina el juego si un murciélago atrapa al jugador
         }
     });
 
     requestAnimationFrame(moveBats);
 }
 
+// Crea una estrella en una posición aleatoria
 function createStar() {
     const star = document.createElement('div');
     star.classList.add('star');
@@ -89,6 +97,7 @@ function createStar() {
     star.style.left = `${x}px`;
     star.style.top = `${y}px`;
     
+    // Evento de recogida de estrella
     star.addEventListener('click', () => {
         const sound = new Audio('./Sonido/Cute sound.mp3');
         sound.play();
@@ -97,12 +106,13 @@ function createStar() {
         starsDisplay.textContent = `Estrellas: ${stars}`;
         star.remove();
         if (stars % 10 === 0) {
-            nextLevel();
+            nextLevel(); // Sube de nivel tras recoger 10 estrellas
         }
         createStar();
     });
 }
 
+// Función para avanzar al siguiente nivel
 function nextLevel() {
     level++;
     levelDisplay.textContent = `Nivel: ${level}`;
@@ -119,6 +129,7 @@ function nextLevel() {
     resetGame();
 }
 
+// Reinicia el estado del juego para el siguiente nivel
 function resetGame() {
     document.querySelectorAll('.bat').forEach(bat => bat.remove());
     bats = [];
@@ -127,6 +138,7 @@ function resetGame() {
     }
 }
 
+// Termina el juego si el jugador es atrapado por un murciélago
 function endGame() {
     gameOver = true;
     alert('¡Un murciélago te ha atrapado! Juego terminado.');
@@ -145,6 +157,7 @@ function endGame() {
     }
 }
 
+// Inicia el juego
 resetGame();
 createStar();
 moveBats();

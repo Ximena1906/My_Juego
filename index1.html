@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explora la Cueva</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Configuración del documento -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta la escala en dispositivos móviles -->
+    <title>Explora la Cueva</title> <!-- Título de la página -->
+    
+    <!-- Enlaces a hojas de estilo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"> <!-- FontAwesome para íconos -->
+    <link href="css/style.css" rel="stylesheet"> <!-- Hoja de estilos personalizada -->
+    
     <style>
+        /* Estilo general del cuerpo */
         body {
             font-family: 'Poppins', sans-serif;
         }
+        /* Contenedor principal del juego */
         .game-container {
             display: flex;
             flex-direction: column;
@@ -19,6 +25,7 @@
             height: 100vh;
             text-align: center;
         }
+        /* Tarjeta de información del juego */
         .info-card {
             background: rgba(0, 0, 0, 0.7);
             color: white;
@@ -27,6 +34,7 @@
             box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
             text-align: center;
         }
+        /* Botón de reinicio */
         #restart-btn {
             background: #ff69b4;
             border: none;
@@ -36,25 +44,35 @@
             box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.4);
             transition: 0.3s;
         }
+        /* Efecto hover para el botón de reinicio */
         #restart-btn:hover {
             background: #ff1493;
         }
     </style>
 </head>
 <body>
+    <!-- Contenedor principal del juego -->
     <div class="container-fluid game-container position-relative">
-        <div class="light" id="light"></div>
+        <div class="light" id="light"></div> <!-- Elemento decorativo de luz -->
+        
+        <!-- Tarjeta de información del nivel y estrellas -->
         <div class="position-absolute top-0 start-0 m-3 p-3 info-card">
             <h5 class="mb-2"><i class="fas fa-layer-group"></i> Nivel: <span id="level">1</span></h5>
             <h5><i class="fas fa-star"></i> Estrellas: <span id="stars">0</span></h5>
         </div>
+        
+        <!-- Tarjeta de información del mejor puntaje -->
         <div class="position-absolute top-0 end-0 m-3 p-3 info-card">
             <h5 class="mb-2"><i class="fas fa-trophy"></i> Mejor Puntaje:</h5>
             <h6 id="score">Cargando...</h6>
         </div>
+        
+        <!-- Botón de reinicio del juego (inicialmente oculto) -->
         <button id="restart-btn" class="btn text-white position-absolute bottom-0 mb-4" style="display: none;">💖 Reiniciar Juego</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    
+    <!-- Scripts necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+    <script src="js/main.js"></script> <!-- Script del juego -->
 </body>
 </html>
